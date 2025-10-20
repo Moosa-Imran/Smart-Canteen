@@ -1,0 +1,12 @@
+Burger,250
+Pizza,450
+Fries,150
+Sandwich,180
+Coffee,120
+Tea,80
+Soda,100
+Pasta,320
+Salad,200
+Cake,180
+Ice Cream,140
+Juice,90
