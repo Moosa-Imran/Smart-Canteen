@@ -3,24 +3,55 @@ echo ====================================
 echo      Smart Canteen System
 echo ====================================
 echo.
+echo Please choose which portal to run:
+echo 1. Admin Portal
+echo 2. Client Portal
+echo 3. Exit
+echo.
+set /p choice="Enter your choice (1-3): "
 
-REM Check if executable exists
-if not exist smart_canteen.exe (
-    echo Compiling the system...
-    g++ -std=c++11 -Wall -Wextra -g -Iheader src/main.cpp src/MenuManager.cpp src/OrderManager.cpp src/SalesManager.cpp src/Reports.cpp src/AdminPanel.cpp src/ClientPanel.cpp -o smart_canteen.exe
+if "%choice%"=="1" goto admin
+if "%choice%"=="2" goto client
+if "%choice%"=="3" goto end
+echo Invalid choice!
+pause
+goto end
+
+:admin
+echo.
+echo Starting Admin Portal...
+if not exist admin_portal.exe (
+    echo Compiling Admin Portal...
+    g++ -std=c++11 -Wall -Wextra -g admin_portal.cpp -o admin_portal.exe
     if errorlevel 1 (
-        echo Compilation failed!
+        echo Admin Portal compilation failed!
         pause
         exit /b 1
     )
     echo Compilation successful!
     echo.
 )
+admin_portal.exe
+goto end
 
-echo Starting Smart Canteen System...
+:client
 echo.
-smart_canteen.exe
+echo Starting Client Portal...
+if not exist client_portal.exe (
+    echo Compiling Client Portal...
+    g++ -std=c++11 -Wall -Wextra -g client_portal.cpp -o client_portal.exe
+    if errorlevel 1 (
+        echo Client Portal compilation failed!
+        pause
+        exit /b 1
+    )
+    echo Compilation successful!
+    echo.
+)
+client_portal.exe
+goto end
 
+:end
 echo.
-echo Program ended. Press any key to exit...
-pause > nul
+echo Thank you for using Smart Canteen System!
+echo.

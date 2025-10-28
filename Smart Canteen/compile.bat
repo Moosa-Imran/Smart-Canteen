@@ -1,10 +1,39 @@
 @echo off
 echo Compiling Smart Canteen System...
-g++ -std=c++11 -Wall -Wextra -g -Iheader src/main.cpp src/MenuManager.cpp src/OrderManager.cpp src/SalesManager.cpp src/Reports.cpp src/AdminPanel.cpp src/ClientPanel.cpp -o smart_canteen.exe
+echo.
+
+echo Compiling Admin Portal...
+g++ -std=c++11 -Wall -Wextra -g admin_portal.cpp -o admin_portal.exe
 if errorlevel 1 (
-    echo Compilation failed!
-    pause
-) else (
-    echo Compilation successful! Run 'smart_canteen.exe' to start the program.
-    pause
+    echo Admin Portal compilation failed!
+    goto :error
 )
+echo Admin Portal compiled successfully!
+
+echo.
+echo Compiling Client Portal...
+g++ -std=c++11 -Wall -Wextra -g client_portal.cpp -o client_portal.exe
+if errorlevel 1 (
+    echo Client Portal compilation failed!
+    goto :error
+)
+echo Client Portal compiled successfully!
+
+echo.
+echo ========================================
+echo All portals compiled successfully!
+echo ========================================
+echo.
+echo To run:
+echo - Admin Portal: admin_portal.exe
+echo - Client Portal: client_portal.exe
+echo.
+pause
+goto :end
+
+:error
+echo.
+echo Compilation failed!
+pause
+
+:end
