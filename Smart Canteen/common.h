@@ -1,3 +1,31 @@
+/*
+ * ============================================================================
+ * SMART CANTEEN MANAGEMENT SYSTEM
+ * ============================================================================
+ * 
+ * A beginner-friendly canteen management system with separate portals
+ * for administrators and customers.
+ * 
+ * GROUP MEMBERS:
+ * - Moosa Imran     (Roll: 2503499)
+ * - Raafay Zeeshan  (Roll: 2503516) 
+ * - Hanan           (Roll: 2503508)
+ * - Asfand          (Roll: 2503543)
+ * 
+ * Course: [Your Course Name]
+ * Semester: [Your Semester]
+ * Year: 2025
+ * 
+ * Features:
+ * - No complex OOP (beginner-friendly)
+ * - Simple function-based design
+ * - Separate admin and client portals
+ * - File-based data storage
+ * - Cross-platform compatibility
+ * 
+ * ============================================================================
+ */
+
 #ifndef COMMON_H
 #define COMMON_H
 
@@ -65,16 +93,21 @@ void displayHeader(const string& title) {
 // Function to display welcome message
 void displayWelcome(const string& portalType) {
     clearScreen();
-    cout << string(70, '*') << endl;
-    cout << "*" << string(68, ' ') << "*" << endl;
-    cout << "*" << string(15, ' ') << "SMART CANTEEN SYSTEM - " << portalType << string(15, ' ') << "*" << endl;
-    cout << "*" << string(68, ' ') << "*" << endl;
-    cout << "*" << string(20, ' ') << "Simple Food Ordering System" << string(21, ' ') << "*" << endl;
-    cout << "*" << string(68, ' ') << "*" << endl;
-    cout << string(70, '*') << endl;
+    cout << string(80, '*') << endl;
+    cout << "*" << string(78, ' ') << "*" << endl;
+    cout << "*" << string(15, ' ') << "SMART CANTEEN MANAGEMENT SYSTEM - " << portalType << string(15, ' ') << "*" << endl;
+    cout << "*" << string(78, ' ') << "*" << endl;
+    cout << "*" << string(20, ' ') << "Developed by Group Members:" << string(30, ' ') << "*" << endl;
+    cout << "*" << string(15, ' ') << "Moosa Imran (2503499), Raafay Zeeshan (2503516)" << string(15, ' ') << "*" << endl;
+    cout << "*" << string(20, ' ') << "Hanan (2503508), Asfand (2503543)" << string(25, ' ') << "*" << endl;
+    cout << "*" << string(78, ' ') << "*" << endl;
+    cout << "*" << string(25, ' ') << "Simple Food Ordering System" << string(25, ' ') << "*" << endl;
+    cout << "*" << string(78, ' ') << "*" << endl;
+    cout << string(80, '*') << endl;
 }
 
 // Function to load menu from file
+// File I/O implementation by: Moosa Imran (2503499) & Hanan (2503508)
 bool loadMenu() {
     menu.clear();
     ifstream file("Text_files/menu.txt");
@@ -119,6 +152,7 @@ bool saveMenu() {
 }
 
 // Function to display menu
+// UI formatting by: Asfand (2503543) & Raafay Zeeshan (2503516)
 void displayMenu() {
     if (menu.empty()) {
         cout << "No items in menu." << endl;
@@ -138,6 +172,7 @@ void displayMenu() {
 }
 
 // Function to find menu item by name or number
+// Smart search algorithm by: Raafay Zeeshan (2503516) & Moosa Imran (2503499)
 int findMenuItem(const string& input) {
     // First try to parse as a number (1-based index)
     try {
@@ -195,6 +230,7 @@ bool loadSalesHistory() {
 }
 
 // Function to save sale to file
+// Sales tracking system by: Hanan (2503508) & Moosa Imran (2503499)
 bool saveSale(const string& items, double total) {
     ofstream file("Text_files/sales.txt", ios::app);
     
@@ -220,6 +256,7 @@ bool saveSale(const string& items, double total) {
 }
 
 // Function to get valid integer input
+// Input validation system by: Asfand (2503543) & Raafay Zeeshan (2503516)
 int getValidIntInput(const string& prompt) {
     int value;
     while (true) {

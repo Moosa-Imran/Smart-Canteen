@@ -1,8 +1,31 @@
+/*
+ * ============================================================================
+ * SMART CANTEEN SYSTEM - ADMIN PORTAL
+ * ============================================================================
+ * 
+ * Administrative interface for managing the canteen system
+ * 
+ * GROUP MEMBERS:
+ * - Moosa Imran     (Roll: 2503499) - Lead Developer
+ * - Raafay Zeeshan  (Roll: 2503516) - System Architecture  
+ * - Hanan           (Roll: 2503508) - Database Design
+ * - Asfand          (Roll: 2503543) - User Interface
+ * 
+ * This file contains functions for:
+ * - Menu management (add, update, delete items)
+ * - Sales reporting and analytics
+ * - Administrative operations
+ * 
+ * Compiled: October 2025
+ * ============================================================================
+ */
+
 #include "common.h"
 
 using namespace std;
 
 // Function to display admin menu
+// Designed by: Raafay Zeeshan (2503516) & Asfand (2503543)
 void displayAdminMenu() {
     displayHeader("ADMIN PANEL");
     cout << "1. View Menu" << endl;
@@ -17,6 +40,7 @@ void displayAdminMenu() {
 }
 
 // Function to add new menu item
+// Implemented by: Moosa Imran (2503499) & Hanan (2503508)
 void addNewItem() {
     displayHeader("ADD NEW MENU ITEM");
     
@@ -126,6 +150,7 @@ void deleteMenuItem() {
 }
 
 // Function to generate sales report
+// Analytics by: Hanan (2503508) & Raafay Zeeshan (2503516)
 void generateSalesReport() {
     displayHeader("DAILY SALES REPORT");
     
@@ -222,9 +247,14 @@ int main() {
                 break;
                 
             case 7:
-                displayHeader("GOODBYE");
+                displayHeader("GOODBYE FROM ADMIN TEAM");
                 cout << "Thank you for using Smart Canteen Admin Portal!" << endl;
-                cout << "All changes have been saved automatically." << endl;
+                cout << "System developed by:" << endl;
+                cout << "- Moosa Imran (2503499)" << endl;
+                cout << "- Raafay Zeeshan (2503516)" << endl; 
+                cout << "- Hanan (2503508)" << endl;
+                cout << "- Asfand (2503543)" << endl;
+                cout << "\nAll changes have been saved automatically." << endl;
                 break;
                 
             default:

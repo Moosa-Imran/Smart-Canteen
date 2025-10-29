@@ -3,6 +3,13 @@ echo ====================================
 echo      Smart Canteen System
 echo ====================================
 echo.
+echo Developed by Group Members:
+echo - Moosa Imran (2503499)
+echo - Raafay Zeeshan (2503516) 
+echo - Hanan (2503508)
+echo - Asfand (2503543)
+echo.
+echo ====================================
 echo Please choose which portal to run:
 echo 1. Admin Portal
 echo 2. Client Portal
@@ -54,4 +61,5 @@ goto end
 :end
 echo.
 echo Thank you for using Smart Canteen System!
+echo Created by: Moosa, Raafay, Hanan and Asfand
 echo.

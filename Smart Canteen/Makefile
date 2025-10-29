@@ -1,4 +1,16 @@
+# ============================================================================
 # Makefile for Smart Canteen System
+# ============================================================================
+# 
+# GROUP MEMBERS:
+# - Moosa Imran     (Roll: 2503499) - Lead Developer
+# - Raafay Zeeshan  (Roll: 2503516) - System Architecture  
+# - Hanan           (Roll: 2503508) - Database Design
+# - Asfand          (Roll: 2503543) - User Interface
+# 
+# Course: [Your Course Name]
+# Year: 2025
+# ============================================================================
 
 # Compiler
 CXX = g++
@@ -63,6 +75,10 @@ install: all
 help:
 	@echo "Smart Canteen System - Makefile Help"
 	@echo "====================================="
+	@echo "Developed by:"
+	@echo "  Moosa Imran (2503499), Raafay Zeeshan (2503516)"
+	@echo "  Hanan (2503508), Asfand (2503543)"
+	@echo ""
 	@echo "Available targets:"
 	@echo "  all         - Build both admin and client portals"
 	@echo "  admin_portal - Build only admin portal"

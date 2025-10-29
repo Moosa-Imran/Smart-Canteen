@@ -1,8 +1,31 @@
+/*
+ * ============================================================================
+ * SMART CANTEEN SYSTEM - CLIENT PORTAL
+ * ============================================================================
+ * 
+ * Customer interface for ordering food and managing cart
+ * 
+ * GROUP MEMBERS:
+ * - Moosa Imran     (Roll: 2503499) - Lead Developer
+ * - Raafay Zeeshan  (Roll: 2503516) - System Architecture  
+ * - Hanan           (Roll: 2503508) - Database Design
+ * - Asfand          (Roll: 2503543) - User Interface
+ * 
+ * This file contains functions for:
+ * - Menu browsing and item selection
+ * - Shopping cart management 
+ * - Order processing and checkout
+ * 
+ * Compiled: October 2025
+ * ============================================================================
+ */
+
 #include "common.h"
 
 using namespace std;
 
 // Function to display client menu
+// UI Design by: Asfand (2503543) & Moosa Imran (2503499)
 void displayClientMenu() {
     displayHeader("CLIENT PORTAL");
     cout << "1. View Menu" << endl;
@@ -86,6 +109,7 @@ int findCartItem(const string& input) {
 }
 
 // Function to add item to cart
+// Shopping Cart Logic by: Raafay Zeeshan (2503516) & Hanan (2503508)
 void addToCart() {
     displayHeader("ADD ITEM TO CART");
     
@@ -207,6 +231,7 @@ void clearCart() {
 }
 
 // Function to process checkout
+// Payment Processing by: Moosa Imran (2503499) & Asfand (2503543)
 void processCheckout() {
     displayHeader("CHECKOUT");
     
@@ -238,6 +263,7 @@ void processCheckout() {
             cout << "Payment successful!" << endl;
             cout << "Order Total: Rs. " << fixed << setprecision(2) << total << endl;
             cout << "Thank you for your order!" << endl;
+            cout << "\n** Developed by Team: Moosa, Raafay, Hanan & Asfand **" << endl;
             cout << "\nYour order:" << endl;
             
             for (const auto& item : cart) {
@@ -303,10 +329,15 @@ int main() {
                 break;
                 
             case 7:
-                displayHeader("GOODBYE");
+                displayHeader("THANK YOU FROM OUR TEAM");
                 cout << "Thank you for using Smart Canteen!" << endl;
+                cout << "\nDeveloped with care by:" << endl;
+                cout << "- Moosa Imran (2503499)" << endl;
+                cout << "- Raafay Zeeshan (2503516)" << endl;
+                cout << "- Hanan (2503508)" << endl; 
+                cout << "- Asfand (2503543)" << endl;
                 if (!cart.empty()) {
-                    cout << "Note: Your cart items will be lost." << endl;
+                    cout << "\nNote: Your cart items will be lost." << endl;
                     cout << "Complete checkout next time to place your order." << endl;
                 }
                 break;

@@ -1,172 +1,149 @@
-# Smart Canteen System
+# Smart Canteen System - Beginner-Friendly Version
 
-A comprehensive C++ application for managing canteen operations with separate Admin and Client panels.
+A simple, beginner-friendly canteen management system with separate Admin and Client portals.
+
+## Overview
+
+This system is designed to be easy to understand for beginners. It uses:
+- **No classes** - Only simple functions and structures
+- **`using namespace std`** - No need to type `std::` everywhere
+- **Simple data structures** - Uses vectors and basic structs
+- **Separate portals** - Admin and Client have their own programs
+- **Clear, readable code** - Easy to follow logic
 
 ## Features
 
-### Admin Panel
-- Menu & Item Management (Add, Update, Delete items)
-- Price Management
-- Sales Reports & Analytics
-- Sales Log Viewing
+### Admin Portal (`admin_portal.exe`)
+- View current menu
+- Add new menu items
+- Update item prices
+- Delete menu items
+- View sales reports
+- View sales history
 
-### Client Panel
-- Menu Browsing
-- Order Management (Shopping Cart)
-- Checkout Process
-
-### Core Modules
-1. **MenuManager** - Handles menu operations and file I/O
-2. **OrderManager** - Manages shopping cart and order processing
-3. **SalesManager** - Records and stores sales data
-4. **Reports** - Generates analytics and reports
-5. **AdminPanel** - Administrative interface
-6. **ClientPanel** - Customer interface
+### Client Portal (`client_portal.exe`)
+- View menu
+- Add items to cart
+- View cart contents
+- Remove items from cart
+- Checkout and place orders
+- Clear cart
 
 ## File Structure
 
 ```
 Smart Canteen/
-├── Text_files/
-│   ├── menu.txt        # Menu items (name, price)
-│   └── sales.txt       # Sales records
-├── header/
-│   ├── MenuManager.h
-│   ├── OrderManager.h
-│   ├── SalesManager.h
-│   ├── Reports.h
-│   ├── AdminPanel.h
-│   └── ClientPanel.h
-├── src/
-│   ├── MenuManager.cpp
-│   ├── OrderManager.cpp
-│   ├── SalesManager.cpp
-│   ├── Reports.cpp
-│   ├── AdminPanel.cpp
-│   ├── ClientPanel.cpp
-│   └── main.cpp
-├── Makefile
-└── README.md
+├── admin_portal.cpp      # Admin portal source code
+├── client_portal.cpp     # Client portal source code
+├── common.h              # Shared functions and data structures
+├── compile.bat           # Windows compilation script
+├── run.bat              # Windows run script with portal selection
+├── Makefile             # Linux/Mac compilation
+└── Text_files/
+    ├── menu.txt         # Menu items (name,price format)
+    └── sales.txt        # Sales records (items|total|date format)
 ```
 
-## Compilation and Running
+## How to Compile
 
-### Method 1: Using Makefile (Linux/Mac/WSL)
+### Windows (using compile.bat)
 ```bash
-# Navigate to the project directory
-cd "Smart Canteen"
-
-# Setup files and build
-make build-run
-
-# Or step by step:
-make setup    # Create necessary files
-make          # Compile
-make run      # Run the program
-
-# Clean build files
-make clean
+compile.bat
 ```
 
-### Method 2: Manual Compilation (Windows/Any OS)
+### Windows (manual compilation)
 ```bash
-# Navigate to the project directory
-cd "Smart Canteen"
-
-# Compile all source files (Windows PowerShell/CMD)
-g++ -std=c++11 -Wall -Wextra -g -Iheader src/main.cpp src/MenuManager.cpp src/OrderManager.cpp src/SalesManager.cpp src/Reports.cpp src/AdminPanel.cpp src/ClientPanel.cpp -o smart_canteen.exe
-
-# Or use the compile script
-compile.bat  # Windows
-
-# Run the program
-./smart_canteen  # Linux/Mac
-smart_canteen.exe  # Windows
+g++ -std=c++11 -Wall -Wextra -g admin_portal.cpp -o admin_portal.exe
+g++ -std=c++11 -Wall -Wextra -g client_portal.cpp -o client_portal.exe
 ```
 
-### Method 3: Using VS Code
-1. Open the "Smart Canteen" folder in VS Code
-2. Install C++ extension if not already installed
-3. Use Ctrl+Shift+P and run "Tasks: Run Task" > "Build and Run"
-4. Or use the terminal methods above
-
-## Usage Guide
-
-### Main Menu Options
-1. **Display Menu** - View all available items
-2. **Take Order** - Quick order interface
-3. **View Daily Report** - Sales analytics
-4. **Update Item Price** - Quick price update
-5. **View Sales Log** - All sales records
-6. **Admin Panel** - Full administrative access
-7. **Client Panel** - Full customer interface
-8. **Exit** - Close the application
-
-### Sample Data
-The system comes with pre-loaded menu items:
-- Burger (Rs. 250)
-- Pizza (Rs. 450)
-- Fries (Rs. 150)
-- Sandwich (Rs. 180)
-- Coffee (Rs. 120)
-- Tea (Rs. 80)
-- And more...
-
-### Sales Record Format
-Sales are stored in the format:
-```
-2025-10-21 | Burger x2, Fries x1 | Total: 620
+### Linux/Mac (using Makefile)
+```bash
+make all           # Build both portals
+make admin_portal  # Build only admin portal
+make client_portal # Build only client portal
 ```
 
-## Key Features
+## How to Run
 
-### Menu Management
-- Load menu from `menu.txt`
-- Add/Update/Delete items
-- Automatic file synchronization
+### Windows
+```bash
+run.bat            # Interactive menu to choose portal
+admin_portal.exe   # Run admin portal directly
+client_portal.exe  # Run client portal directly
+```
 
-### Order Processing
-- Interactive shopping cart
-- Quantity management
-- Real-time price calculation
-- Order confirmation
+### Linux/Mac
+```bash
+make run-admin     # Build and run admin portal
+make run-client    # Build and run client portal
+./admin_portal     # Run admin portal directly
+./client_portal    # Run client portal directly
+```
 
-### Sales Tracking
-- Automatic sales recording
-- Date-stamped entries
-- Persistent storage
+## Data Files
 
-### Analytics & Reporting
-- Total sales count
-- Total revenue
-- Highest single sale
-- Average sale value
-- Sales distribution analysis
+### menu.txt Format
+```
+ItemName,Price
+Burger,250
+Pizza,450
+```
 
-## Requirements
-- C++11 or later
-- Standard C++ libraries
-- File system access for text files
+### sales.txt Format
+```
+Items|Total|Date
+Burger x2, Pizza x1|950|Today
+```
+
+## Code Structure for Beginners
+
+### Data Structures Used
+- `vector<MenuItem>` - List of menu items
+- `vector<CartItem>` - Shopping cart items
+- `vector<SaleRecord>` - Sales history
+
+### Key Functions
+- `loadMenu()` - Reads menu from file
+- `saveMenu()` - Saves menu to file
+- `displayMenu()` - Shows menu in formatted table
+- `addToCart()` - Adds items to shopping cart
+- `processCheckout()` - Handles payment and order completion
+
+## Sample Usage
+
+1. **First Time Setup**: The system will create necessary files if they don't exist
+2. **Admin Tasks**: Use admin portal to set up menu items and view reports
+3. **Customer Orders**: Use client portal to browse menu and place orders
+4. **Data Persistence**: All changes are automatically saved to text files
+
+## Error Handling
+
+- Input validation for all user entries
+- File error handling with user-friendly messages
+- Clear error messages for invalid operations
+- Automatic recovery from common mistakes
+
+## Benefits for Beginners
+
+1. **No Complex OOP**: Uses simple functions instead of classes
+2. **Clear Variable Names**: Easy to understand what each variable does
+3. **Simple Logic Flow**: Linear, easy-to-follow program structure
+4. **Extensive Comments**: Code is well-documented
+5. **Error Messages**: Clear feedback when something goes wrong
+6. **Modular Design**: Each function has a single, clear purpose
+
+## Extending the System
+
+To add new features:
+1. Add new functions to `common.h` for shared functionality
+2. Add menu options to the respective portal
+3. Implement the new function following the existing pattern
+4. Update this README with new features
 
 ## Troubleshooting
 
-### Common Issues
-1. **File not found errors**: Ensure you're running from the correct directory
-2. **Permission errors**: Check file permissions for Text_files directory
-3. **Compilation errors**: Verify C++11 support and include paths
-
-### File Locations
-- Menu data: `Text_files/menu.txt`
-- Sales data: `Text_files/sales.txt`
-- All paths are relative to the executable location
-
-## Contributing
-Feel free to enhance the system with additional features like:
-- User authentication
-- Payment processing
-- Inventory management
-- Customer loyalty programs
-- Web interface
-
-## License
-This project is created for educational purposes.
+- **Compilation errors**: Make sure you have g++ installed
+- **File not found**: The system will create missing files automatically
+- **Invalid input**: The system will ask you to try again
+- **Permission errors**: Make sure you have write access to the Text_files directory

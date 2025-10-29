@@ -1,4 +1,14 @@
 @echo off
+echo ========================================================
+echo        SMART CANTEEN SYSTEM COMPILATION
+echo ========================================================
+echo.
+echo Group Members:
+echo - Moosa Imran (2503499)     - Lead Developer
+echo - Raafay Zeeshan (2503516)  - System Architecture
+echo - Hanan (2503508)          - Database Design  
+echo - Asfand (2503543)         - User Interface
+echo.
 echo Compiling Smart Canteen System...
 echo.
 
@@ -23,6 +33,9 @@ echo.
 echo ========================================
 echo All portals compiled successfully!
 echo ========================================
+echo.
+echo System ready! Developed by:
+echo Moosa Imran, Raafay Zeeshan, Hanan, Asfand
 echo.
 echo To run:
 echo - Admin Portal: admin_portal.exe
