@@ -6,7 +6,7 @@
  * Administrative interface for managing the canteen system
  * 
  * GROUP MEMBERS:
- * - Moosa Imran     (Roll: 2503499) - Lead Developer
+ * - Moosa Imran     (Roll: 2503499) - Lead Developer (Boss)
  * - Raafay Zeeshan  (Roll: 2503516) - System Architecture  
  * - Hanan           (Roll: 2503508) - Database Design
  * - Asfand          (Roll: 2503543) - User Interface
